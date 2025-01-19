@@ -1,0 +1,34 @@
+{
+  "name": "dropair-auto-checkin",
+  "version": "1.0.0",
+  "description": "auto checkin for dropair",
+  "main": "drop.js",
+  "scripts": {
+    "start": "node drop.js"
+  },
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "node-fetch": "^3.2.10",
+    "random-useragent": "^0.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChocoPie02/dropair.git"
+  },
+  "keywords": [
+    "auto",
+    "checkin",
+    "for",
+    "dropair",
+    "network",
+    "-",
+    "light",
+    "node"
+  ],
+  "author": "@ChocoPie02",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChocoPie02/dropair/issues"
+  },
+  "homepage": "https://github.com/ChocoPie02/dropair#readme"
+}
