@@ -71,26 +71,31 @@
             return;
         }
 
-        for (const authToken of tokens) {
-            console.log("Auth Token:", authToken); // Log the auth token for debugging
+        while (true) {
+            for (const authToken of tokens) {
+                console.log("Auth Token:", authToken); // Log the auth token for debugging
 
-            try {
-                // Cek username dan total poin
-                const userDetails = await getUser(authToken);
-                const { username, totalPoints } = userDetails || {};
-                if (username) {
-                    console.log(chalk.magenta(`Username: ${username} | Total Points: ${totalPoints}`));
-                } else {
-                    console.log(chalk.red("Failed to retrieve user details."));
+                try {
+                    // Cek username dan total poin
+                    const userDetails = await getUser(authToken);
+                    const { username, totalPoints } = userDetails || {};
+                    if (username) {
+                        console.log(chalk.magenta(`Username: ${username} | Total Points: ${totalPoints}`));
+                    } else {
+                        console.log(chalk.red("Failed to retrieve user details."));
+                    }
+
+                    // Kirimkan daily check-in
+                    const checkInResponse = await dailyCheckIn(authToken);
+
+                } catch (error) {
+                    console.error('Error:', error);
                 }
-
-                // Kirimkan daily check-in
-                const checkInResponse = await dailyCheckIn(authToken);
-                
-            } catch (error) {
-                console.error('Error:', error);
             }
-        }
+            console.log("All accounts processed. Waiting 24 hours for the next check-in...");
+            await new Promise(resolve => setTimeout(resolve, 24 * 60 * 60 * 1000));  // 24 hours cooldown
+            
+        }    
     }
 
     main();
