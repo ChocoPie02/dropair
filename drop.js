@@ -2,6 +2,7 @@
     const fetch = (await import('node-fetch')).default;
     const chalk = (await import('chalk')).default;
     const randomUseragent = (await import('random-useragent')).default;
+    const moment = require('moment').default;
     const fs = require('fs').promises;
 
     const userAgent = randomUseragent.getRandom();
@@ -92,7 +93,12 @@
                     console.error('Error:', error);
                 }
             }
-            console.log("All accounts processed. Waiting 24 hours for the next check-in...");
+            const now = moment();
+			const formattedNow = now.format('DD MMMM YYYY HH:mm')
+            const tomorrow = now.add(24, 'hours');
+			const formattedTomorrow = tomorrow.format('DD MMMM YYYY HH:mm');
+            console.log(`[${formattedNow}] All accounts processed.`);
+            console.log(`Waiting 24 hours for the next check-in on [${formattedTomorrow}]`);
             await new Promise(resolve => setTimeout(resolve, 24 * 60 * 60 * 1000));  // 24 hours cooldown
             
         }    
