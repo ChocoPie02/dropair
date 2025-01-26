@@ -2,7 +2,7 @@
     const fetch = (await import('node-fetch')).default;
     const chalk = (await import('chalk')).default;
     const randomUseragent = (await import('random-useragent')).default;
-    const moment = require('moment').default;
+    const moment = require('moment');
     const fs = require('fs').promises;
 
     const userAgent = randomUseragent.getRandom();
