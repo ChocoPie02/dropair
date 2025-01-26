@@ -2,7 +2,7 @@
 ![dropair banner](image.png)
 
 **Dropair** before start the script you must have account in [Dropair](https://dropair.io?ref=YLJJ8E)
-- register to functor network [https://dropair.io](https://dropair.io?ref=YLJJ8E)
+- register to drop [https://dropair.io](https://dropair.io?ref=YLJJ8E)
 - insert Twitter username
 - insert code on your twitter bio
 - login and finish other tasks
