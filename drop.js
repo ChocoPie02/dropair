@@ -8,8 +8,13 @@
     const userAgent = randomUseragent.getRandom();
     const header = {
         "Accept-Language": "en-US,en;q=0.9",
-        "User-Agent": userAgent,
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 Edg/132.0.0.0",
         'Accept': 'application/json, text/plain, */*',
+'priority': 'u=1, i',
+'sec-ch-ua-platform':"Windows",
+'sec-ch-ua-platform-version':"15.0.0",
+'sec-fetch-mode':'cors',
+'sec-fetch-site': 'same-origin'
     }
 
     async function loadAuthToken() {
@@ -28,7 +33,7 @@
             ...header,
             'origin': "https://dropair.io",
             'referer': "https://dropair.io/",
-            'Cookie': `auth-token=${authToken}`
+            'Cookie': `cf_clearance=QsvMnYDogN_XITCJqJ8Q6k9ArG3IyWD0RqXERNfQ9Wk-1738069511-1.2.1.1-V4O5jYfV7oFtIpecdrHyzuTEaGRK1QklnWFXh6v.5ZM81.QnsoOMbDaxmJjtvfVbWZCXWCqQC0KGs.LGArzsfLUSPoW1ah3GLniTZtea5FUYLd744GNJCz5f21o4hGMyZ6iH.gr2eqrQvi2Yg7xKv2GcilCkyB5XJPjKD5uA8g25V16oO9BTYCn9itERibKUpCf07Gn9NhXTncRPHdyPqP8g2hX63S87G7TdiGRKX8GX9.3KwpokCumKT2oXm0hm9qbN6_vfeQJXMG955Vw1hH8I2wV2pSYvlEoQzYugj9ELrYIidCrpn5ijIdCBZbzChesP.F9ax92EzXZiXkIMzg; auth-token=${authToken}`
         };
 
         const response = await fetch("https://dropair.io/api/user", { method: 'GET', headers });
@@ -41,7 +46,7 @@
             ...header,
             'origin': "https://dropair.io",
             'referer': "https://dropair.io/",
-            'Cookie': `auth-token=${authToken}`,
+            'Cookie': `cf_clearance=QsvMnYDogN_XITCJqJ8Q6k9ArG3IyWD0RqXERNfQ9Wk-1738069511-1.2.1.1-V4O5jYfV7oFtIpecdrHyzuTEaGRK1QklnWFXh6v.5ZM81.QnsoOMbDaxmJjtvfVbWZCXWCqQC0KGs.LGArzsfLUSPoW1ah3GLniTZtea5FUYLd744GNJCz5f21o4hGMyZ6iH.gr2eqrQvi2Yg7xKv2GcilCkyB5XJPjKD5uA8g25V16oO9BTYCn9itERibKUpCf07Gn9NhXTncRPHdyPqP8g2hX63S87G7TdiGRKX8GX9.3KwpokCumKT2oXm0hm9qbN6_vfeQJXMG955Vw1hH8I2wV2pSYvlEoQzYugj9ELrYIidCrpn5ijIdCBZbzChesP.F9ax92EzXZiXkIMzg; auth-token=${authToken}`,
             'Content-Type': 'application/json' // Add content type for JSON
         };
 
